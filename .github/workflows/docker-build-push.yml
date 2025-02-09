@@ -24,9 +24,8 @@ jobs:
 
       - name: Build Frontend Docker Image
         run: |
-          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/pagepicks-frontend:latest .
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/pagepicks-frontend:latest ./page-picks-frontend/page-picks-frontend
 
       - name: Push Frontend Docker Image to Docker Hub
         run: |
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/pagepicks-frontend:latest
-

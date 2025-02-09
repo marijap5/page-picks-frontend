@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { BooksService } from 'src/app/service/books.service';
-import { Book } from 'src/app/service/interface/book';
+import { BooksService } from '../../service/books.service';
+import { Book } from '../../service/interface/book';
 
 @Component({
   selector: 'app-add-book-dialog',
@@ -23,7 +23,7 @@ export class AddBookDialogComponent {
   mode = 'Add';
   originalIsbn = '';
 
-  constructor(public dialogRef: MatDialogRef<AddBookDialogComponent>, private bookService: BooksService, 
+  constructor(public dialogRef: MatDialogRef<AddBookDialogComponent>, private bookService: BooksService,
     @Inject(MAT_DIALOG_DATA) public bookData: Book
   ) {
     if(bookData){
@@ -31,7 +31,7 @@ export class AddBookDialogComponent {
       this.originalIsbn = bookData.isbn;
       this.book = this.bookService.copyBook(this.book, bookData);
       console.log('book deep',this.book)
-    } 
+    }
   }
 
   onSubmit(): void {

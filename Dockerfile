@@ -5,7 +5,7 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install
 
-COPY page-picks-frontend .
+COPY . .
 RUN npm run build --prod
 
 FROM nginx:alpine
